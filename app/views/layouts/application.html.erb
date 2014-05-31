@@ -14,7 +14,12 @@
     <ul>
       <li><a href="#">Learn</a></li>
       <li><a href="#">Teach</a></li>
-      <li><a href="#">Sign Up</a></li>
+      <% if user_signed_in? %>
+      <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+      <% else %>
+      <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
+      <li><a href="<%= new_user_session_path %>">Sign In</a></li>
+      <% end %>
     </ul>
   </div>
 </header>

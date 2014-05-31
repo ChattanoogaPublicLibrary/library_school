@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531191311) do
+ActiveRecord::Schema.define(version: 20140531191636) do
 
   create_table "courses", force: true do |t|
     t.boolean  "status"
@@ -61,13 +61,13 @@ ActiveRecord::Schema.define(version: 20140531191311) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "votes", force: true do |t|
-    t.integer  "course_id"
+    t.integer  "proposal_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["course_id"], name: "index_votes_on_course_id"
+  add_index "votes", ["proposal_id"], name: "index_votes_on_proposal_id"
   add_index "votes", ["user_id"], name: "index_votes_on_user_id"
 
 end

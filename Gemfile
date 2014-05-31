@@ -10,7 +10,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'devise'
-gem 'mysql2'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
@@ -39,4 +38,8 @@ group :test do
   gem 'faker'
   gem 'launchy'
   gem 'selenium-webdriver'
+end
+
+group :production do
+  gem 'mysql2'
 end

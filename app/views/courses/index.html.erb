@@ -1,7 +1,7 @@
 <% @courses.each do |course| %>
 
 <a href="<%= course_path(course) %>">
-  <section>
+  <section class="post">
     <h1><%= course.name %></h1>
     <p><%= course.description %></p>
   </section>

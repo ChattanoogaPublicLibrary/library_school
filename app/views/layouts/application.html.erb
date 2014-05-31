@@ -11,22 +11,29 @@
 <header>
   <div class="wrapper">
     <a href="/"><h1>Library School</h1></a>
-    <ul>
-      <li><%= link_to "Proposals", proposals_path %></li>
-      <li><%= link_to "Courses", courses_path %></li>
+    <nav>
+      <%= link_to "Proposals", proposals_path %>
+      <%= link_to "Courses", courses_path %>
       <% if user_signed_in? %>
-      <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+      <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
       <% else %>
-      <li><a href="<%= new_user_registration_path %>">Sign Up</a></li>
-      <li><a href="<%= new_user_session_path %>">Sign In</a></li>
+      <a href="<%= new_user_registration_path %>">Sign Up</a>
+      <a href="<%= new_user_session_path %>">Sign In</a>
       <% end %>
-    </ul>
+    </nav>
   </div>
 </header>
 
 <main role="main">
 <%= yield %>
 </main>
+
+<footer>
+  <div class="wrapper">
+    <h2>Footer</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, excepturi, illo nam asperiores porro culpa iusto labore voluptatem fuga libero unde nobis explicabo dolore voluptatibus voluptas enim accusamus ratione est!</p>
+  </div>
+</footer>
 
 </body>
 </html>

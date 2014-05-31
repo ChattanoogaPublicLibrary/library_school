@@ -1,11 +1,23 @@
 /* =============================================================================
-   Variables
+   Variables & Mixins
    ========================================================================== */
 
 // colors
 $light-grey: #eee;
 $dark-grey: #626366;
-$accent-color: #f16522;
+$accent-color: #477dca;
+
+@mixin breakpoint($point) {
+  @if $point == large {
+    @media (min-width: $max-width + 25) { @content; }
+  }
+  @else if $point == medium {
+    @media (min-width: em(855)) { @content; }
+  }
+  @else if $point == small {
+    @media (min-width: em(500)) { @content; }
+  }
+}
 
 /* =============================================================================
    Links
@@ -22,6 +34,41 @@ a {
 }
 
 /* =============================================================================
+   Form
+   ========================================================================== */
+
+.form {
+  @include span-columns(4);
+}
+
+textarea, input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"] {
+  background-color: white;
+  border-radius: 0.1875em;
+  border: 1px solid $light-grey;
+  font-size: 1em;
+  margin-bottom: 0.75em;
+  padding: 0.5em 0.5em;
+  width: 100%;
+}
+
+button, input[type="submit"] {
+  border: 1px solid #2459a6;
+  border-radius: 3px;
+  color: white;
+  display: inline-block;
+  font-size: 1em;
+  background-color: $accent-color;
+  padding: 7px 18px;
+  margin: .5em 0;
+  text-decoration: none;
+}
+
+input[type="checkbox"] {
+  margin-right: .5em;
+}
+
+
+/* =============================================================================
    Typography
    ========================================================================== */
 
@@ -36,9 +83,37 @@ a {
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/cJZKeOuBrn4kERxqtaUH3bO3LdcAZYWl9Si6vvxL-qU.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Open Sans Bold'), local('OpenSans-Bold'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/k3k702ZOKiLJc3WVjuplzKRDOzjiPcYnFooOUGCOsRk.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Open Sans Italic'), local('OpenSans-Italic'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/xjAJXh38I15wypJXxuGMBrrIa-7acMAeDBVuclsi6Gc.woff) format('woff');
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Open Sans Bold Italic'), local('OpenSans-BoldItalic'), url(http://themes.googleusercontent.com/static/fonts/opensans/v8/PRmiXeptR36kaC0GEAetxhbnBKKEOwRKgsHDreGcocg.woff) format('woff');
+}
+
+body {
+  font-family: "Open Sans", helvetica, arial, sans-serif;
+}
+
 hgroup, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Chattype-Light', georgia, serif; 
-  margin: 0;
+  font-family: 'Chattype-Light', georgia, serif;
 }
 
 /* =============================================================================
@@ -48,26 +123,38 @@ hgroup, h1, h2, h3, h4, h5, h6 {
 header {
   background-color: $light-grey;
   border-bottom: 2px solid $dark-grey;
-  padding: 2%;
+  padding: 2.5%;
 
   .wrapper {
     @include outer-container;
+    padding: 0 5% 0 5%;
   }
 
   h1 {
-    @include span-columns(4);
+    @include span-columns(12);
     line-height: 1;
+    margin: 0;
+
+    @include breakpoint(medium) {
+      @include span-columns(4);
+    }
+
   }
 
-  ul {
-    @include span-columns(7);
-    margin: 0;
+  nav {
+    @include span-columns(12);
     font-size: 1.24em;
-    float: right;
-    
-    li {
-      display: inline-block;
-      padding: 0 0 0 2em;
+
+    @include breakpoint(medium) {
+      @include span-columns(8);
+    }
+
+    a {
+      padding: 0 1.5em 0 0;
+
+      @include breakpoint(medium) {
+        padding: 0 0 0 2em;
+      }
     }
 
   }
@@ -80,14 +167,29 @@ header {
 
 main {
   @include outer-container;
-  padding: 5% 0 5% 0;
-  border-left: 2px solid $dark-grey;
-  border-right: 2px solid $dark-grey;
+  padding: 5%;
 }
 
-section {
-  @include span-columns(10);
-  @include shift(1);
+.post {
+  width: 100%;
   padding: 2em;
+  margin-bottom: 2em;
   border: 1px solid $dark-grey;
+}
+
+
+/* =============================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+  border-top: 2px solid $dark-grey;
+  background-color: $light-grey;
+  padding: 2.5%;
+
+  .wrapper {
+    @include outer-container;
+    padding: 0 5% 0 5%;
+  }
+
 }

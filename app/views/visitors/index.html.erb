@@ -1,5 +1,5 @@
 <% @combined_proposals_courses.each do |c| %>
-<a href="/">
+<a href="<%= proposal_course_pth(c) %>">
   <section>
     <h1><%= c.name %></h1>
     <p><%= c.description %></p>

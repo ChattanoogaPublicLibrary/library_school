@@ -14,6 +14,7 @@ gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'thin'
 gem 'rails_12factor'
+gem 'rails_admin'
 
 group :development do
   gem 'sqlite3'

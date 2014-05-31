@@ -1,0 +1,11 @@
+$visual-grid : false;
+$visual-grid-opacity: 0.5;
+
+$column: golden-ratio(1em, 3);
+$gutter: golden-ratio(1em, 1);
+$grid-columns: 12;
+$max-width: 1100px; // desired page width, baseline font size – http://bourbon.io/docs/#px-to-em
+
+$small: new-breakpoint(min-width em(525, 17) 12);
+$medium: new-breakpoint(min-width em(700, 17) 12);
+$large: new-breakpoint(min-width 1100px 12);

@@ -1,6 +1,11 @@
+<% @combined_proposals_courses.each do |c| %>
 <a href="/">
   <section>
-    <h1>Title – Learn photoshop</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, illum accusantium ab repellendus asperiores error voluptatem…</p>
+    <h1><%= c.name %></h1>
+    <p><%= c.description %></p>
   </section>
 </a>
+
+<% end %>
+
+<%= paginate @combined_proposals_courses %>

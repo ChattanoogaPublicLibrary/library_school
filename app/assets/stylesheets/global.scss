@@ -63,6 +63,7 @@ header {
     @include span-columns(7);
     margin: 0;
     font-size: 1.24em;
+    float: right;
     
     li {
       display: inline-block;

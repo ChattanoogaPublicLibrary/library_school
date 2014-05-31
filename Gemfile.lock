@@ -293,6 +293,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari
   launchy
   mysql2
   neat

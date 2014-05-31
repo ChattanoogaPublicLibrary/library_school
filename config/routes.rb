@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :proposals
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :courses
 

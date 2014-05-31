@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531175044) do
+ActiveRecord::Schema.define(version: 20140531181908) do
 
   create_table "courses", force: true do |t|
     t.boolean  "status"
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 20140531175044) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "instructors", force: true do |t|
+    t.integer  "course_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "instructors", ["course_id"], name: "index_instructors_on_course_id"
+  add_index "instructors", ["user_id"], name: "index_instructors_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

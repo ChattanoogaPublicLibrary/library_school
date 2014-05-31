@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140531191636) do
+ActiveRecord::Schema.define(version: 20140531194530) do
 
   create_table "courses", force: true do |t|
     t.boolean  "status"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20140531191636) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_id"
   end
 
   add_index "proposals", ["user_id"], name: "index_proposals_on_user_id"

@@ -8,7 +8,20 @@
 </head>
 <body>
 
+<header>
+  <div class="wrapper">
+    <a href="/"><%= image_tag "logo.svg" %></a>
+    <ul>
+      <li><a href="#">Learn</a></li>
+      <li><a href="#">Teach</a></li>
+      <li><a href="#">Sign Up</a></li>
+    </ul>
+  </div>
+</header>
+
+<main role="main">
 <%= yield %>
+</main>
 
 </body>
 </html>

@@ -25,7 +25,19 @@ a {
    Typography
    ========================================================================== */
 
+@font-face {
+    font-family: 'Chattype-Light';
+    src: asset-url('chatype-thin/chatypethin-webfont.eot', font);
+    src: asset-url('chatype-thin/chatypethin-webfont.eot', font) format('embedded-opentype'),
+         asset-url('chatype-thin/chatypethin-webfont.woff', font) format('woff'),
+         asset-url('chatype-thin/chatypethin-webfont.ttf', font) format('truetype'),
+         asset-url('chatype-thin/chatypethin-webfont.svg#JunctionRegular', font) format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 hgroup, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Chattype-Light', georgia, serif; 
   margin: 0;
 }
 
@@ -36,19 +48,21 @@ hgroup, h1, h2, h3, h4, h5, h6 {
 header {
   background-color: $light-grey;
   border-bottom: 2px solid $dark-grey;
-  padding: 4%;
+  padding: 2%;
 
   .wrapper {
     @include outer-container;
   }
 
-  img {
+  h1 {
     @include span-columns(4);
+    line-height: 1;
   }
 
   ul {
     @include span-columns(7);
-    font-size: 1.4em;
+    margin: 0;
+    font-size: 1.24em;
     
     li {
       display: inline-block;
@@ -65,7 +79,14 @@ header {
 
 main {
   @include outer-container;
-  padding: 5%;
+  padding: 5% 0 5% 0;
   border-left: 2px solid $dark-grey;
   border-right: 2px solid $dark-grey;
+}
+
+section {
+  @include span-columns(10);
+  @include shift(1);
+  padding: 2em;
+  border: 1px solid $dark-grey;
 }

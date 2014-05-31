@@ -10,10 +10,10 @@
 
 <header>
   <div class="wrapper">
-    <a href="/"><%= image_tag "logo.svg" %></a>
+    <a href="/"><h1>Library School</h1></a>
     <ul>
-      <li><a href="#">Learn</a></li>
-      <li><a href="#">Teach</a></li>
+      <li><a href="#">Proposals</a></li>
+      <li><a href="#">Courses</a></li>
       <% if user_signed_in? %>
       <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
       <% else %>

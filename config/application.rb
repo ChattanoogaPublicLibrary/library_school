@@ -21,6 +21,7 @@ module LibrarySchool
     end
 
     config.assets.initialize_on_precompile = false
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

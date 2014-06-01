@@ -25,6 +25,7 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    @course.user = current_user
 
     respond_to do |format|
       if @course.save
@@ -69,6 +70,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:status, :name, :description)
+      params.require(:course).permit(:name, :description)
     end
 end

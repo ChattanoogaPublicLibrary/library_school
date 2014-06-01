@@ -147,7 +147,7 @@ input[type="checkbox"] {
 
 body {
   font-family: "Open Sans", helvetica, arial, sans-serif;
-  font-size: 15px; 
+  font-size: 14px; 
   line-height: 1.65;
 
   @include breakpoint(medium) {
@@ -161,9 +161,7 @@ hgroup, h1, h2, h3, h4, h5, h6 {
   color: $dark-blue;
   margin: .75em 0 0 0;
   line-height: 1;
-
 }
-
 
 /* =============================================================================
    Header
@@ -175,21 +173,20 @@ header {
 
   .wrapper {
     @include outer-container;
-    @include pad(3% 0 3% 0);
+    @include pad(3% 0);
   }
 
   h1 {
-    display: block;
     @include span-columns(12);
+    display: block;
     line-height: 1.5;
     margin: 0;
-    padding: 0;
     color: #fff;
     text-align: center;
 
     @include breakpoint(medium) {
       @include span-columns(4);
-      @include pad(0 0 0 5.5%);
+      @include pad(0 0 0 5%);
       line-height: 1;
       text-align: left;
     }
@@ -208,13 +205,13 @@ header {
   nav {
     @include span-columns(12);
     @include omega();
+    @include pad(0 5% 0 0);
     font-size: 1.15em;
     line-height: 2;
     text-align: center;
 
     @include breakpoint(medium) {
       @include span-columns(8);
-      @include pad(0 5.5% 0 0);
       font-size: 1.25em;
       text-align: right;
     }
@@ -238,11 +235,11 @@ header {
 
 main {
   @include outer-container;
-  @include pad(4.5%);
+  @include pad(5%);
 }
 
 .post {
-  width: 100%;
+  @include span-columns(12);
   padding: .5em 2em 1em 2em;
   margin-bottom: 2em;
   border: 2px solid $light-grey;
@@ -254,6 +251,34 @@ main {
 
 }
 
+.post-heading, .about {
+  @include span-columns(12);
+  padding: 1em 2em 1em 2em;
+  margin-bottom: 2em;
+  // border: 2px solid $dark-grey;
+  background-color: $light-grey;
+  background-image: image-url("absurdidad.png");
+  background-size: 4px 4px;
+
+  h1, h2 {
+    margin: 0;
+    color: $dark-grey;
+  }
+
+  h2 {
+    margin-top: .5em;
+  }
+
+  p {
+    margin-top: .5em;
+  }
+
+  button {
+    margin: 0;
+  }
+   
+}
+
 
 /* =============================================================================
    Footer
@@ -261,12 +286,11 @@ main {
 
 footer {
   background-color: $dark-grey;
-  padding: 2.5%;
   color: #fff;
 
   .wrapper {
     @include outer-container;
-    padding: 0 5% 0 5%;
+    @include pad(2.5% 5% 2.5% 5%);
   }
 
   h2 {

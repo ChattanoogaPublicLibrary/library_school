@@ -1,7 +1,8 @@
 <% @combined_proposals_courses.each do |c| %>
 <a href="<%= proposal_course_pth(c) %>">
   <section class="post">
-  <h1><%= c.name %> - <%= c.class.to_s %></h1>
+  <h1><%= c.class.to_s %></h1>
+  <h1><%= c.name %></h1>
     <p><%= truncate(c.description, :length => 120) %></p>
     <% if c.is_a?(Proposal) %>
     <p>Votes: <%= c.votes.count %></p>

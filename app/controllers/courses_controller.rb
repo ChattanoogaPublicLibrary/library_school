@@ -1,4 +1,5 @@
 class CoursesController < ApplicationController
+  load_and_authorize_resource :except => [:vote]
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   # GET /courses
@@ -23,14 +24,19 @@ class CoursesController < ApplicationController
 
   # GET /courses/:id/vote
   def vote
+    authorize! :vote, Course
     @course = Course.find(params[:id])
     @vote = Vote.new(:course => @course, :user => current_user)
 
     respond_to do |format|
-      if @vote.save
-        format.html { redirect_to @course, notice: 'Your vote was successful. Thank you!' }
+      if !@course.user_has_voted?(current_user)
+        if @vote.save
+          format.html { redirect_to @course, notice: 'Your vote was successful. Thank you!' }
+        else
+          format.html { redirect_to @course, notice: 'Your vote was unsuccessful. Try again.' }
+        end
       else
-        format.html { redirect_to @course, notice: 'Your vote was unsuccessful. Try again.' }
+        format.html { redirect_to @course, notice: 'You are not allowed to vote for this course more than once.' }
       end
     end
   end

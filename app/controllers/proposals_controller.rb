@@ -1,4 +1,5 @@
 class ProposalsController < ApplicationController
+  load_and_authorize_resource :except => :vote
   before_action :set_proposal, only: [:show, :edit, :update, :destroy]
 
   # GET /proposals
@@ -23,14 +24,19 @@ class ProposalsController < ApplicationController
 
   # GET /proposals/:id/vote
   def vote
+    authorize! :vote, Proposal
     @proposal = Proposal.find(params[:id])
     @vote = Vote.new(:proposal => @proposal, :user => current_user)
 
     respond_to do |format|
-      if @vote.save
-        format.html { redirect_to @proposal, notice: 'Your vote was successful. Thank you!' }
+      if !@proposal.user_has_voted?(current_user)
+        if @vote.save
+          format.html { redirect_to @proposal, notice: 'Your vote was successful. Thank you!' }
+        else
+          format.html { redirect_to @proposal, notice: 'Your vote was unsuccessful. Try again.' }
+        end
       else
-        format.html { redirect_to @proposal, notice: 'Your vote was unsuccessful. Try again.' }
+        format.html { redirect_to @proposal, notice: 'You are not allowed to vote for a proposal more than once.' }
       end
     end
   end

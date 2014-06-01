@@ -2,7 +2,7 @@
 
 <section class="about">
   <h2>About Section</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto, assumenda, autem vitae earum iste mollitia facere explicabo atque aspernatur incidunt enim voluptates iusto impedit minima veritatis error ducimus id laboriosam!</p>
+  <p>You got something you want to learn? Look through the proposed courses below. If you find something, up vote it so potential instructors are more likely to find it. If not, create a new proposal.</p>
 </section>
 
 <% @combined_proposals_courses.each do |c| %>
@@ -11,7 +11,7 @@
   <h1><%= c.class.to_s %></h1>
   <h1><%= c.name %></h1>
     <p><%= truncate(c.description, :length => 120) %></p>
-    <p>Votes: <%= c.votes.count %></p>
+    <p class="votes">Votes: <%= c.votes.count %></p>
   </section>
 </a>
 

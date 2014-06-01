@@ -2,10 +2,6 @@
 
 <%= render 'form' %>
 
-<button>
-  <%= link_to 'Show', @proposal %>
-</button>
+<%= link_to 'Show', @proposal, :class => 'button' %>
 
-<button>
-  <%= link_to 'Back', proposals_path %>
-</button>
+<%= link_to 'Back', proposals_path, :class => 'button' %>

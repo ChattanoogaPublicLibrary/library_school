@@ -13,9 +13,11 @@
 
 <a href="<%= proposal_path(proposal) %>">
   <section class="post">
+    <section class="categories">
+      <p><%= proposal.votes.count %> Votes</p>
+    </section>
     <h1><%= proposal.name %></h1>
     <p><%= truncate(proposal.description, :length => 120) %></p>
-    <p class="votes">Votes: <%= proposal.votes.count %></p>
   </section>
 </a>
 

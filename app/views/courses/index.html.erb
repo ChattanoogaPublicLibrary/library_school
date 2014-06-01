@@ -7,9 +7,11 @@
 
 <a href="<%= course_path(course) %>">
   <section class="post">
+    <section class="categories">
+      <p><%= course.votes.count %> Votes</p>
+    </section>
     <h1><%= course.name %></h1>
     <p><%= truncate(course.description, :length => 120) %></p>
-    <p>Votes: <%= course.votes.count %></p>
   </section>
 </a>
 

@@ -25,6 +25,7 @@ class ProposalsController < ApplicationController
   # POST /proposals.json
   def create
     @proposal = Proposal.new(proposal_params)
+    @proposal.user = current_user
 
     respond_to do |format|
       if @proposal.save
@@ -69,6 +70,6 @@ class ProposalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proposal_params
-      params.require(:proposal).permit(:name, :description, :user_id)
+      params.require(:proposal).permit(:name, :description)
     end
 end

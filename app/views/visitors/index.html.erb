@@ -8,10 +8,11 @@
 <% @combined_proposals_courses.each do |c| %>
 <a href="<%= proposal_course_pth(c) %>">
   <section class="post">
-  <h1><%= c.class.to_s %></h1>
-  <h1><%= c.name %></h1>
+    <section class="categories">
+      <p><%= c.class.to_s %> – <%= c.votes.count %> Votes</p>
+    </section>
+    <h1><%= c.name %></h1>
     <p><%= truncate(c.description, :length => 120) %></p>
-    <p class="votes">Votes: <%= c.votes.count %></p>
   </section>
 </a>
 

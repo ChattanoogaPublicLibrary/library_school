@@ -77,6 +77,7 @@ button, .button, input[type="submit"] {
   padding: .5em 1em;
   margin: .5em .25em 0 0;
   text-decoration: none;
+  @include transition (background-color .2s ease-in-out);
 
   &:hover {
     background-color: lighten( $dark-blue, 10% );
@@ -89,7 +90,7 @@ input[type="checkbox"] {
   margin-right: .5em;
 }
 
-*:focus {
+input:focus, textarea:focus {
   @include transition (border .2s ease-in-out);
   outline: none !important;
   border: 2px solid darken( $light-grey, 20% );
@@ -159,6 +160,12 @@ hgroup, h1, h2, h3, h4, h5, h6 {
   color: $dark-blue;
   margin: .75em 0 0 0;
   line-height: 1;
+}
+
+ul {
+  margin: .5em 0 0 0;
+  padding: 0;
+  list-style-type: none;
 }
 
 /* =============================================================================
@@ -254,6 +261,21 @@ main {
     color: $dark-blue;
   }
 
+  .categories {
+    float: right;
+    min-width: 5em;
+    margin: 1em 0 0 0;
+    padding: .25em 1em .25em 1em;
+    background-color: $light-grey;
+    background-image: image-url("absurdidad.png");
+    background-size: 4px 4px;
+
+    p {
+      margin: 0;
+    }
+
+  }
+
 }
 
 .post-heading, .about {
@@ -282,6 +304,35 @@ main {
     margin: 0;
   }
    
+}
+
+#notice {
+  @include span-columns(12);
+  padding: 1.5em 2em 1.5em 2em;
+  margin-bottom: 2em;
+  // border: 2px solid $dark-grey;
+  background-color: $light-grey;
+  background-image: image-url("absurdidad.png");
+  background-size: 4px 4px;
+  color: $dark-blue;
+}
+
+.block, .pagination {
+  @include span-columns(12);
+  padding: 1em 2em 1em 2em;
+  margin-bottom: 2em;
+  border: 2px solid $light-grey;
+  @include transition (border .2s ease-in-out);
+  color: $dark-grey;
+
+  a {
+    margin-left: .25em;
+  }
+  
+}
+
+.votes {
+
 }
 
 

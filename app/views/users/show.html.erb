@@ -2,19 +2,22 @@
 <p>Name: <%= @user.name if @user.name %></p>
 
 <% if @user.proposals.count > 0 %>
-<h3>My Proposals</h3>
-<ul>
-<% @user.proposals.each do |p| %>
-  <li>
-    <%= link_to p.name, proposal_path(p) %>
-    <% if current_user == p.user %>
-      <%= link_to 'Edit', edit_proposal_path(p), :class => 'button' %>
-      <%= link_to 'Remove', p, :method => :delete, :data => { confirm: 'Are you sure?' }, :class => 'button' %>
-    <% end %>
-  </li>
+
+<section class="block">
+  <h2>My Proposals</h2>
+  <ul>
+  <% @user.proposals.each do |p| %>
+    <li>
+      <%= link_to p.name, proposal_path(p) %>
+      <% if current_user == p.user %>
+        | <%= link_to 'Edit', edit_proposal_path(p) %>
+        <%= link_to 'Remove', p, :method => :delete, :data => { confirm: 'Are you sure?' } %>
+      <% end %>
+    </li>
 <% end %>
 </ul>
 <% end %>
+</section>
 
 <% if @user.courses.count > 0 %>
 <h3>Courses I'm Teaching</h3>

@@ -5,7 +5,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.page(params[:page]).per(10)
+    @courses = Course.sort_by_votes.page(params[:page]).per(10)
   end
 
   # GET /courses/1

@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
 <section class="post-heading">
-  <button><%= link_to "New Proposal", new_proposal_path %></button>
+  <%= link_to "New Proposal", new_proposal_path, :class => 'button' %>
 </section>
 <% end %>
 
@@ -10,7 +10,7 @@
   <section class="post">
     <h1><%= proposal.name %></h1>
     <p><%= truncate(proposal.description, :length => 120) %></p>
-    <p>Votes: <%= proposal.votes.count %></p>
+    <p class="votes">Votes: <%= proposal.votes.count %></p>
   </section>
 </a>
 

@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
   def admin?
     admin
   end
+
+  def enrolled_courses
+    Course.joins(:votes).where(:user_id => id)
+  end
 end

@@ -1,3 +1,23 @@
-<h3>User</h3>
+<h2>My Profile</h2>
 <p>Name: <%= @user.name if @user.name %></p>
-<p>Email: <%= @user.email if @user.email %></p>
+
+<h3>My Proposals</h3>
+<ul>
+<% @user.proposals.each do |p| %>
+  <li><%= link_to p.name, proposal_path(p) %></li>
+<% end %>
+</ul>
+
+<h3>Courses I'm Teaching</h3>
+<ul>
+<% @user.courses.each do |c| %>
+  <li><%= link_to c.name, course_path(c) %></li>
+<% end %>
+</ul>
+
+<h3>Courses I'm Enrolled In</h3>
+<ul>
+<% @user.enrolled_courses.each do |c| %>
+  <li><%= link_to c.name, course_path(c) %></li>
+<% end %>
+</ul>

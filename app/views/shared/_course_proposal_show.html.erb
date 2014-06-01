@@ -1,4 +1,9 @@
 <section>
   <h1><%= obj.name %></h1>
   <p><%= simple_format(obj.description) %></p>
+  <% if obj.is_a?(Proposal) %>
+    <strong>Proposed By:</strong> <%= link_to obj.user.name, user_path(obj.user) %>
+  <% elsif obj.is_a?(Course) %>
+    <strong>Taught By:</strong> <%= link_to obj.user.name, user_path(obj.user) %>
+  <% end %>
 </section>

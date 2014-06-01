@@ -1,5 +1,7 @@
 <% if user_signed_in? %>
-<h2><%= link_to "New Proposal", new_proposal_path %></h2>
+<section class="post-heading">
+  <button><%= link_to "New Proposal", new_proposal_path %></button>
+</section>
 <% end %>
 
 <% @proposals.each do |proposal| %>

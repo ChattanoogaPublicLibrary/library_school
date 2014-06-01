@@ -1,14 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div id="notice"><%= notice %></div>
 
 <%= render "shared/course_proposal_show", :obj => @proposal %>
 
 <% if user_signed_in? %>
-  <p><%= link_to "I want to teach a course for this!", new_course_path(@proposal) %></p>
+  <button>
+    <%= link_to "I want to teach a course for this!", new_course_path(@proposal) %>
+  </button>
 <% end %>
 
 <% if user_signed_in? && !@proposal.user_has_voted?(current_user) %>
 <p>
-I want to <a href="<%= proposal_vote_path(@proposal) %>">vote</a> for this proposal!
+  I want to <a href="<%= proposal_vote_path(@proposal) %>">vote</a> for this proposal!
 </p>
 <% end %>
 

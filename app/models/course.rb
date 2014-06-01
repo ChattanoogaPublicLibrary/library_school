@@ -1,4 +1,4 @@
 class Course < ActiveRecord::Base
-  has_many :proposals
+  belongs_to :proposal
   belongs_to :user
 end

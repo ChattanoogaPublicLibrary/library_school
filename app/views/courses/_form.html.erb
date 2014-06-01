@@ -6,6 +6,7 @@
     <%= f.input :description %>
     <%= f.input :minimum_class_size %>
     <%= f.input :maximum_class_size %>
+    <%= f.input :proposal_id, :as => :hidden, :input_html => { :value => params[:proposal] } %>
   </div>
 
   <div class="form-actions">

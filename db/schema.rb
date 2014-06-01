@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140601052053) do
+ActiveRecord::Schema.define(version: 20140601062353) do
 
   create_table "courses", force: true do |t|
     t.boolean  "status"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20140601052053) do
     t.integer  "user_id"
     t.integer  "minimum_class_size"
     t.integer  "maximum_class_size"
-    t.integer  "course_id"
+    t.integer  "proposal_id"
   end
 
   create_table "instructors", force: true do |t|

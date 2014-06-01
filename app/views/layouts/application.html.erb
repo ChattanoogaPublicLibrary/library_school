@@ -17,6 +17,7 @@
       <%= link_to "Proposals", proposals_path %>
       <%= link_to "Courses", courses_path %>
       <% if user_signed_in? %>
+      <a href="<%= user_path(current_user) %>">My Profile</a>
       <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
       <% else %>
       <a href="<%= new_user_registration_path %>">Sign&nbsp;Up</a>

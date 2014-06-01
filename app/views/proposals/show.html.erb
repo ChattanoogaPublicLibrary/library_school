@@ -3,13 +3,22 @@
 <%= render "shared/course_proposal_show", :obj => @proposal %>
 
 <% if user_signed_in? %>
-  <p><%= link_to "I want to teach a course for this!", new_course_path %></p>
+  <p><%= link_to "I want to teach a course for this!", new_course_path(@proposal) %></p>
 <% end %>
 
 <% if user_signed_in? && !@proposal.user_has_voted?(current_user) %>
 <p>
 I want to <a href="<%= proposal_vote_path(@proposal) %>">vote</a> for this proposal!
 </p>
+<% end %>
+
+<% if @proposal.courses.count > 0 %>
+<h2>Courses</h2>
+<ul>
+<% @proposal.courses.each do |c| %>
+  <li><%= link_to c.name, course_path(c) %></li>
+<% end %>
+</ul>
 <% end %>
 
 <%= link_to 'Back', proposals_path %>

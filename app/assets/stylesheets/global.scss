@@ -3,9 +3,10 @@
    ========================================================================== */
 
 // colors
-$light-grey: #eee;
-$dark-grey: #626366;
-$accent-color: #477dca;
+$light-grey: #F4F4F4;
+$dark-grey: #5D5D5D;
+$dark-blue: #0276A7;
+$light-blue: #7DC8F0;
 
 @mixin breakpoint($point) {
   @if $point == large {
@@ -26,9 +27,10 @@ $accent-color: #477dca;
 a {
   color: $dark-grey;
   text-decoration: none;
+  @include transition (color .2s ease-in-out);
 
   &:hover {
-    color: $accent-color;
+    color: $dark-blue;
   }
 
 }
@@ -38,13 +40,26 @@ a {
    ========================================================================== */
 
 .form {
-  @include span-columns(4);
+  width: 100%;
+
+  @include breakpoint(small) {
+    @include span-columns(8);
+  }
+  
+  @include breakpoint(medium) {
+    @include span-columns(6);
+  }
+  
+  @include breakpoint(large) {
+    @include span-columns(5);
+  }
+  
 }
 
 textarea, input[type="email"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="url"], input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="month"], input[type="time"], input[type="week"] {
   background-color: white;
   border-radius: 0.1875em;
-  border: 1px solid $light-grey;
+  border: 2px solid $light-grey;
   font-size: 1em;
   margin-bottom: 0.75em;
   padding: 0.5em 0.5em;
@@ -52,35 +67,57 @@ textarea, input[type="email"], input[type="number"], input[type="password"], inp
 }
 
 button, input[type="submit"] {
-  border: 1px solid #2459a6;
+  border: none;
   border-radius: 3px;
-  color: white;
+  color: #fff;
   display: inline-block;
   font-size: 1em;
-  background-color: $accent-color;
+  background-color: $dark-blue;
   padding: 7px 18px;
-  margin: .5em 0;
+  margin: .5em .25em 0 0;
   text-decoration: none;
+
+  &:hover {
+    background-color: lighten( $dark-blue, 10% );
+  }
+
+  a, a:hover {
+    color: #fff;
+  }
+
 }
 
 input[type="checkbox"] {
   margin-right: .5em;
 }
 
+input:focus, textarea:focus {
+  @include transition (border .2s ease-in-out);
+  outline: none !important;
+  border: 2px solid darken( $light-grey, 20% );
+  box-shadow: 0 0 10px #719ECE;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+#course_description, #proposal_description {
+  min-height: 150px;
+}
 
 /* =============================================================================
    Typography
    ========================================================================== */
 
 @font-face {
-    font-family: 'Chattype-Light';
-    src: asset-url('chatype-thin/chatypethin-webfont.eot', font);
-    src: asset-url('chatype-thin/chatypethin-webfont.eot', font) format('embedded-opentype'),
-         asset-url('chatype-thin/chatypethin-webfont.woff', font) format('woff'),
-         asset-url('chatype-thin/chatypethin-webfont.ttf', font) format('truetype'),
-         asset-url('chatype-thin/chatypethin-webfont.svg#JunctionRegular', font) format('svg');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'Chattype-Light';
+  src: asset-url('chatype-thin/chatypethin-webfont.eot', font);
+  src: asset-url('chatype-thin/chatypethin-webfont.eot', font) format('embedded-opentype'),
+       asset-url('chatype-thin/chatypethin-webfont.woff', font) format('woff'),
+       asset-url('chatype-thin/chatypethin-webfont.ttf', font) format('truetype'),
+       asset-url('chatype-thin/chatypethin-webfont.svg#JunctionRegular', font) format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
@@ -110,20 +147,32 @@ input[type="checkbox"] {
 
 body {
   font-family: "Open Sans", helvetica, arial, sans-serif;
+  font-size: 15px; 
+  line-height: 1.65;
+
+  @include breakpoint(medium) {
+    font-size: 16px;
+  }
+
 }
 
 hgroup, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Chattype-Light', georgia, serif;
+  font-family: "Chattype-Light", georgia, serif;
+  color: $dark-blue;
+  margin: .75em 0 0 0;
+  line-height: 1;
+
 }
+
 
 /* =============================================================================
    Header
    ========================================================================== */
 
 header {
-  background-color: $light-grey;
-  border-bottom: 2px solid $dark-grey;
-  padding: 2.5%;
+  font-family: "Chattype-Light", georgia, serif;
+  background-color: $dark-blue;
+  padding: 3%;
 
   .wrapper {
     @include outer-container;
@@ -132,25 +181,43 @@ header {
 
   h1 {
     @include span-columns(12);
-    line-height: 1;
+    line-height: 1.5;
     margin: 0;
+    color: #fff;
+    text-align: center;
 
     @include breakpoint(medium) {
       @include span-columns(4);
+      line-height: 1;
+      text-align: left;
+    }
+
+  }
+
+  a {
+    color: #fff;
+
+    &:hover {
+      color: $light-blue;
     }
 
   }
 
   nav {
     @include span-columns(12);
-    font-size: 1.24em;
+    @include omega();
+    font-size: 1.15em;
+    line-height: 2;
+    text-align: center;
 
     @include breakpoint(medium) {
       @include span-columns(8);
+      font-size: 1.25em;
+      text-align: right;
     }
 
     a {
-      padding: 0 1.5em 0 0;
+      padding: 0 1em 0 0;
 
       @include breakpoint(medium) {
         padding: 0 0 0 2em;
@@ -172,9 +239,15 @@ main {
 
 .post {
   width: 100%;
-  padding: 2em;
+  padding: .5em 2em 1em 2em;
   margin-bottom: 2em;
-  border: 1px solid $dark-grey;
+  border: 2px solid $light-grey;
+  @include transition (border .2s ease-in-out);
+
+  &:hover {
+    border: 2px solid darken( $light-grey, 10% );
+  }
+
 }
 
 
@@ -183,13 +256,17 @@ main {
    ========================================================================== */
 
 footer {
-  border-top: 2px solid $dark-grey;
-  background-color: $light-grey;
+  background-color: $dark-grey;
   padding: 2.5%;
+  color: #fff;
 
   .wrapper {
     @include outer-container;
     padding: 0 5% 0 5%;
+  }
+
+  h2 {
+    color: #fff;
   }
 
 }

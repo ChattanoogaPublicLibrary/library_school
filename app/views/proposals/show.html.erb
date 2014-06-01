@@ -1,12 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @proposal.name %>
-</p>
+</h1>
 
 <p>
-  <strong>Description:</strong>
   <%= @proposal.description %>
 </p>
 
@@ -15,5 +13,11 @@
   <%= @proposal.user %>
 </p>
 
-<%= link_to 'Edit', edit_proposal_path(@proposal) %> |
-<%= link_to 'Back', proposals_path %>
+<nav>
+  <button>
+    <%= link_to 'Edit', edit_proposal_path(@proposal) %>
+  </button>
+  <button>
+    <%= link_to 'Back', proposals_path %>
+  </button>
+</nav>

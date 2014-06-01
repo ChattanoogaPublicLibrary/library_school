@@ -10,15 +10,15 @@
 
 <header>
   <div class="wrapper">
-    <a href="/"><h1>Library School</h1></a>
-    <nav>
+    <h1><a href="/">Library School</a></h1>
+    <nav role="navigation">
       <%= link_to "Proposals", proposals_path %>
       <%= link_to "Courses", courses_path %>
       <% if user_signed_in? %>
       <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
       <% else %>
-      <a href="<%= new_user_registration_path %>">Sign Up</a>
-      <a href="<%= new_user_session_path %>">Sign In</a>
+      <a href="<%= new_user_registration_path %>">Sign&nbsp;Up</a>
+      <a href="<%= new_user_session_path %>">Sign&nbsp;In</a>
       <% end %>
     </nav>
   </div>

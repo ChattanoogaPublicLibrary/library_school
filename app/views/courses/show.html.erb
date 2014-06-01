@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Status:</strong>
   <%= @course.status %>
 </p>
 
-<p>
-  <strong>Name:</strong>
+<h1>
   <%= @course.name %>
-</p>
+</h1>
 
 <p>
-  <strong>Description:</strong>
   <%= @course.description %>
 </p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<button>
+  <%= link_to 'Edit', edit_course_path(@course) %>
+</button>
+<button>
+  <%= link_to 'Back', courses_path %>
+</button>

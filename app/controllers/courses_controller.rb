@@ -21,6 +21,20 @@ class CoursesController < ApplicationController
   def edit
   end
 
+  # GET /courses/:id/vote
+  def vote
+    @course = Course.find(params[:id])
+    @vote = Vote.new(:course => @course, :user => current_user)
+
+    respond_to do |format|
+      if @vote.save
+        format.html { redirect_to @course, notice: 'Your vote was successful. Thank you!' }
+      else
+        format.html { redirect_to @course, notice: 'Your vote was unsuccessful. Try again.' }
+      end
+    end
+  end
+
   # POST /courses
   # POST /courses.json
   def create

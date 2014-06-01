@@ -4,6 +4,7 @@
   <section class="post">
     <h1><%= course.name %></h1>
     <p><%= truncate(course.description, :length => 120) %></p>
+    <p>Votes: <%= course.votes.count %></p>
   </section>
 </a>
 

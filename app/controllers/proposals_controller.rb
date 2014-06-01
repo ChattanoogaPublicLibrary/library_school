@@ -5,7 +5,7 @@ class ProposalsController < ApplicationController
   # GET /proposals
   # GET /proposals.json
   def index
-    @proposals = Proposal.sort_by_votes.page(params[:page]).per(10)
+    @proposals = Proposal.sort_by_votes.page(params[:page]).per(5)
   end
 
   # GET /proposals/1

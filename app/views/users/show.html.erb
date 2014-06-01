@@ -5,7 +5,13 @@
 <h3>My Proposals</h3>
 <ul>
 <% @user.proposals.each do |p| %>
-  <li><%= link_to p.name, proposal_path(p) %></li>
+  <li>
+    <%= link_to p.name, proposal_path(p) %>
+    <% if current_user == p.user %>
+      <%= link_to 'Edit', edit_proposal_path(p), :class => 'button' %>
+      <%= link_to 'Remove', p, :method => :delete, :data => { confirm: 'Are you sure?' }, :class => 'button' %>
+    <% end %>
+  </li>
 <% end %>
 </ul>
 <% end %>
@@ -14,7 +20,13 @@
 <h3>Courses I'm Teaching</h3>
 <ul>
 <% @user.courses.each do |c| %>
-  <li><%= link_to c.name, course_path(c) %></li>
+  <li>
+    <%= link_to c.name, course_path(c) %>
+    <% if current_user == c.user %>
+      <%= link_to 'Edit', edit_course_path(c), :class => 'button' %>
+      <%= link_to 'Remove', c, :method => :delete, :data => { confirm: 'Are you sure?' }, :class => 'button' %>
+    <% end %>
+  </li>
 <% end %>
 </ul>
 <% end %>

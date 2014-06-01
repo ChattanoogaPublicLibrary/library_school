@@ -25,12 +25,12 @@ $light-blue: #7DC8F0;
    ========================================================================== */
 
 a {
-  color: $dark-grey;
+  color: $dark-blue;
   text-decoration: none;
   @include transition (color .2s ease-in-out);
 
   &:hover {
-    color: $dark-blue;
+    color: $light-blue;
   }
 
 }
@@ -247,16 +247,18 @@ main {
   margin-bottom: 2em;
   border: 2px solid $light-grey;
   @include transition (border .2s ease-in-out);
+  color: $dark-grey;
 
   &:hover {
     border: 2px solid darken( $light-grey, 10% );
+    color: $dark-blue;
   }
 
 }
 
 .post-heading, .about {
   @include span-columns(12);
-  padding: 1em 2em 1em 2em;
+  padding: 1.5em 2em 1.5em 2em;
   margin-bottom: 2em;
   // border: 2px solid $dark-grey;
   background-color: $light-grey;

@@ -1,8 +1,11 @@
 <section class="post-heading">
   <h1>Proposals</h1>
   <p>You got something you want to learn? Look through the proposed courses below. If you find something, up vote it so potential instructors are more likely to find it. If not, create a new proposal.</p>
+  <% if !user_signed_in? %>
+    <%= link_to 'Sign in to create a proposal', new_user_session_path, :class => 'button' %>
+  <% end %>
   <% if user_signed_in? %>
-    <%= link_to "New Proposal", new_proposal_path, :class => 'button' %>
+    <%= link_to "Create Proposal", new_proposal_path, :class => 'button' %>
   <% end %>
 </section>
 

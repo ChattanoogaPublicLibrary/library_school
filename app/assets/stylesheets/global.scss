@@ -13,7 +13,7 @@ $light-blue: #7DC8F0;
     @media (min-width: $max-width + 25) { @content; }
   }
   @else if $point == medium {
-    @media (min-width: em(855)) { @content; }
+    @media (min-width: em(875)) { @content; }
   }
   @else if $point == small {
     @media (min-width: em(500)) { @content; }
@@ -67,7 +67,7 @@ textarea, input[type="email"], input[type="number"], input[type="password"], inp
 }
 
 button, input[type="submit"] {
-  border: none;
+  border: none !important;
   border-radius: 3px;
   color: #fff;
   display: inline-block;
@@ -91,7 +91,7 @@ input[type="checkbox"] {
   margin-right: .5em;
 }
 
-input:focus, textarea:focus {
+*:focus {
   @include transition (border .2s ease-in-out);
   outline: none !important;
   border: 2px solid darken( $light-grey, 20% );
@@ -172,22 +172,24 @@ hgroup, h1, h2, h3, h4, h5, h6 {
 header {
   font-family: "Chattype-Light", georgia, serif;
   background-color: $dark-blue;
-  padding: 3%;
 
   .wrapper {
     @include outer-container;
-    padding: 0 5% 0 5%;
+    @include pad(3% 0 3% 0);
   }
 
   h1 {
+    display: block;
     @include span-columns(12);
     line-height: 1.5;
     margin: 0;
+    padding: 0;
     color: #fff;
     text-align: center;
 
     @include breakpoint(medium) {
       @include span-columns(4);
+      @include pad(0 0 0 5.5%);
       line-height: 1;
       text-align: left;
     }
@@ -212,11 +214,13 @@ header {
 
     @include breakpoint(medium) {
       @include span-columns(8);
+      @include pad(0 5.5% 0 0);
       font-size: 1.25em;
       text-align: right;
     }
 
     a {
+      display: inline-block;
       padding: 0 1em 0 0;
 
       @include breakpoint(medium) {
@@ -234,7 +238,7 @@ header {
 
 main {
   @include outer-container;
-  padding: 5%;
+  @include pad(4.5%);
 }
 
 .post {

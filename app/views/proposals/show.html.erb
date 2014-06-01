@@ -2,9 +2,9 @@
 
 <%= render "shared/course_proposal_show", :obj => @proposal %>
 
-<% if user_signed_in? %>
+<% if user_signed_in? && !@proposal.user_has_voted?(current_user) %>
 <p>
-  <a href="#">Vote</a> for this proposal!
+<a href="<%= proposal_vote_path(@proposal) %>">Vote</a> for this proposal!
 </p>
 <% end %>
 

@@ -21,6 +21,20 @@ class ProposalsController < ApplicationController
   def edit
   end
 
+  # GET /proposals/:id/vote
+  def vote
+    @proposal = Proposal.find(params[:id])
+    @vote = Vote.new(:proposal => @proposal, :user => current_user)
+
+    respond_to do |format|
+      if @vote.save
+        format.html { redirect_to @proposal, notice: 'Your vote was successful. Thank you!' }
+      else
+        format.html { redirect_to @proposal, notice: 'Your vote was unsuccessful. Try again.' }
+      end
+    end
+  end
+
   # POST /proposals
   # POST /proposals.json
   def create

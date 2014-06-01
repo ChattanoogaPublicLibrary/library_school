@@ -1,9 +1,14 @@
+<% if user_signed_in? %>
+<h2><%= link_to "New Proposal", new_proposal_path %></h2>
+<% end %>
+
 <% @proposals.each do |proposal| %>
 
 <a href="<%= proposal_path(proposal) %>">
   <section class="post">
     <h1><%= proposal.name %></h1>
-    <p><%= proposal.description %></p>
+    <p><%= truncate(proposal.description, :length => 120) %></p>
+    <p>Votes: <%= proposal.votes.count %></p>
   </section>
 </a>
 

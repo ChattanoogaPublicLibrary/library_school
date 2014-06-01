@@ -1,19 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @proposal.name %>
-</p>
+<%= render "shared/course_proposal_show", :obj => @proposal %>
 
+<% if user_signed_in? %>
 <p>
-  <strong>Description:</strong>
-  <%= @proposal.description %>
+  <a href="#">Vote</a> for this proposal!
 </p>
+<% end %>
 
-<p>
-  <strong>User:</strong>
-  <%= @proposal.user %>
-</p>
-
-<%= link_to 'Edit', edit_proposal_path(@proposal) %> |
 <%= link_to 'Back', proposals_path %>

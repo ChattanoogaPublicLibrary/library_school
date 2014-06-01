@@ -1,19 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @course.status %>
-</p>
+<%= render "shared/course_proposal_show", :obj => @course %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @course.description %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>

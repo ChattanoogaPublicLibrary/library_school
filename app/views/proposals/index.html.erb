@@ -1,7 +1,7 @@
 <% @proposals.each do |proposal| %>
 
 <a href="<%= proposal_path(proposal) %>">
-  <section>
+  <section class="post">
     <h1><%= proposal.name %></h1>
     <p><%= proposal.description %></p>
   </section>

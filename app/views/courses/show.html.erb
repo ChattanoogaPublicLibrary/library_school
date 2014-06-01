@@ -4,7 +4,7 @@
 
 <% if user_signed_in? && !@course.user_has_voted?(current_user) %>
 
-<p>I want to <a href="<%= course_vote_path(@course) %>">vote</a> for this proposal!</p>
+<p>I would <a href="<%= course_vote_path(@course) %>">enroll</a> for this proposal!</p>
 
 <% end %>
 

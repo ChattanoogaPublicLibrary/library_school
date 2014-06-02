@@ -1,5 +1,7 @@
-<h2>My Profile</h2>
-<p>Name: <%= @user.name if @user.name %></p>
+<section class="post-heading">
+  <h1>My Profile</h1>
+  <p>Name: <%= @user.name if @user.name %></p>
+</section>
 
 <% if @user.proposals.count > 0 %>
 
@@ -14,31 +16,38 @@
         <%= link_to 'Remove', p, :method => :delete, :data => { confirm: 'Are you sure?' } %>
       <% end %>
     </li>
-<% end %>
-</ul>
-<% end %>
+  <% end %>
+  </ul>
+  <% end %>
 </section>
 
 <% if @user.courses.count > 0 %>
-<h3>Courses I'm Teaching</h3>
-<ul>
-<% @user.courses.each do |c| %>
-  <li>
-    <%= link_to c.name, course_path(c) %>
-    <% if current_user == c.user %>
-      <%= link_to 'Edit', edit_course_path(c), :class => 'button' %>
-      <%= link_to 'Remove', c, :method => :delete, :data => { confirm: 'Are you sure?' }, :class => 'button' %>
-    <% end %>
-  </li>
-<% end %>
-</ul>
+
+<section class="block">
+  <h2>Courses I'm Teaching</h2>
+  <ul>
+  <% @user.courses.each do |c| %>
+    <li>
+      <%= link_to c.name, course_path(c) %>
+      <% if current_user == c.user %>
+        | <%= link_to 'Edit', edit_course_path(c) %>
+        <%= link_to 'Remove', c, :method => :delete, :data => { confirm: 'Are you sure?' } %>
+      <% end %>
+    </li>
+  <% end %>
+  </ul>
+</section>
+
 <% end %>
 
 <% if @user.enrolled_courses.count > 0 %>
-<h3>Courses I'm Enrolled In</h3>
-<ul>
-<% @user.enrolled_courses.each do |c| %>
-  <li><%= link_to c.name, course_path(c) %></li>
-<% end %>
-</ul>
+
+<section class="block">
+  <h2>Courses I'm Enrolled In</h2>
+  <ul>
+  <% @user.enrolled_courses.each do |c| %>
+    <li><%= link_to c.name, course_path(c) %></li>
+  <% end %>
+  </ul>
+</section>
 <% end %>

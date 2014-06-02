@@ -35,7 +35,7 @@ The absolute easiest method is via [Heroku](https://devcenter.heroku.com/article
 | Environment Variable   | Value                      |
 | ---------------------- |:--------------------------:| 
 | ADMIN_NAME             | Admin's personal name      |
-| ADMIN_EMAIL            | Admin' e-mail address      | 
+| ADMIN_EMAIL            | Admin's e-mail address     | 
 | ADMIN_PASSWORD         | Admin's password           |
 | DOMAIN_NAME            | Domain name of app         |
 | SECRET_KEY_BASE        | Rails session secret key   |

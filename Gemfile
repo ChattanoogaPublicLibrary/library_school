@@ -16,7 +16,7 @@ gem 'cancancan', '~> 1.8'
 
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
-gem 'thin'
+gem 'passenger'
 gem 'rails_12factor'
 gem 'bourbon'
 gem 'neat'

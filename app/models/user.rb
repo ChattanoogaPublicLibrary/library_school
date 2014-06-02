@@ -12,6 +12,6 @@ class User < ActiveRecord::Base
   end
 
   def enrolled_courses
-    Course.joins(:votes).where(:user_id => id)
+    Course.joins(:votes).where('votes.user_id = ?', id)
   end
 end

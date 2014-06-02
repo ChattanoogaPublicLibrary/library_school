@@ -13,7 +13,7 @@ $light-blue: #7DC8F0;
     @media (min-width: $max-width + 25) { @content; }
   }
   @else if $point == medium {
-    @media (min-width: em(875)) { @content; }
+    @media (min-width: em(900)) { @content; }
   }
   @else if $point == small {
     @media (min-width: em(500)) { @content; }
@@ -178,7 +178,17 @@ header {
 
   .wrapper {
     @include outer-container;
-    @include pad(3% 0);
+    @include pad(1em .85em);
+
+    @include breakpoint(small) {
+      @include pad(1em 2em);
+    }
+    
+
+    @include breakpoint(medium) {
+      @include pad(2.25em 4em);
+    }
+    
   }
 
   h1 {
@@ -191,7 +201,6 @@ header {
 
     @include breakpoint(medium) {
       @include span-columns(4);
-      @include pad(0 0 0 5%);
       line-height: 1;
       text-align: left;
     }
@@ -209,14 +218,12 @@ header {
 
   nav {
     @include span-columns(12);
-    @include omega();
     font-size: 1.15em;
     line-height: 2;
     text-align: center;
 
     @include breakpoint(medium) {
       @include span-columns(8);
-      @include pad(0 5% 0 0);
       font-size: 1.25em;
       text-align: right;
     }
@@ -245,7 +252,16 @@ header {
 
 main {
   @include outer-container;
-  @include pad(5%);
+  @include pad(1.25em);
+
+  @include breakpoint(small) {
+    @include pad(2em);
+  }
+
+  @include breakpoint(medium) {
+    @include pad(4em 4em 4.5em 4em);
+  }
+  
 }
 
 .post {
@@ -348,7 +364,19 @@ footer {
 
   .wrapper {
     @include outer-container;
-    @include pad(2.5% 5% 2.5% 5%);
+    @include pad(1.25em);
+    text-align: center;
+
+    @include breakpoint(small) {
+      @include pad(2em);
+      text-align: right;
+    }
+
+    @include breakpoint(medium) {
+      @include pad(2em 4em);
+    }
+    
+    
   }
 
   h2 {

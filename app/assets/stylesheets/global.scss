@@ -5,7 +5,7 @@
 // colors
 $light-grey: #F4F4F4;
 $dark-grey: #5D5D5D;
-$dark-blue: #0276A7;
+$dark-blue: #0090c2;
 $light-blue: #7DC8F0;
 
 @mixin breakpoint($point) {
@@ -156,7 +156,8 @@ body {
 }
 
 hgroup, h1, h2, h3, h4, h5, h6 {
-  font-family: "Chattype-Light", georgia, serif;
+  font-family: "Chattype-Light", "Open Sans", helvetica, arial, sans-serif;
+  font-weight: normal;
   color: $dark-blue;
   margin: .75em 0 0 0;
   line-height: 1;
@@ -173,7 +174,7 @@ ul {
    ========================================================================== */
 
 header {
-  font-family: "Chattype-Light", georgia, serif;
+  font-family: "Chattype-Light", "Open Sans", helvetica, arial, sans-serif;
   background-color: $dark-blue;
 
   .wrapper {
@@ -357,9 +358,9 @@ main {
    ========================================================================== */
 
 footer {
+  font-family: "Chattype-Light", "Open Sans", helvetica, arial, sans-serif;
   background-color: $dark-grey;
   color: #fff;
-  font-family: "Chattype-Light", georgia, serif;
   font-size: 1.1em;
 
   .wrapper {
